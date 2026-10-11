@@ -1,0 +1,45 @@
+pipeline {
+    agent {
+        label 'remote-agent'
+    }
+
+    stages {
+        stage('Remote Agent Test') {
+            steps {
+                sh '''
+                    echo "===== JENKINS REMOTE AGENT TEST ====="
+
+                    echo "Hostname:"
+                    hostname
+
+                    echo "Private IP:"
+                    hostname -I
+
+                    echo "Current user:"
+                    whoami
+
+                    echo "Operating System:"
+                    grep PRETTY_NAME /etc/os-release
+
+                    echo "Java version:"
+                    java -version
+
+                    echo "Working directory:"
+                    pwd
+
+                    echo "===== REMOTE EXECUTION SUCCESSFUL ====="
+                '''
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Remote Jenkins Agent execution completed successfully.'
+        }
+
+        failure {
+            echo 'Remote Jenkins Agent execution failed.'
+        }
+    }
+}

@@ -1,0 +1,15 @@
+*.pem
+*.key
+.aws/
+credentials
+config
+secrets/
+*.secret
+*.log
+*.tmp
+*.swp
+*~
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

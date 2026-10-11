@@ -1,0 +1,26 @@
+# Secrets and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.aws/
+credentials
+
+# Terraform sensitive/generated files
+*.tfstate
+*.tfstate.*
+.terraform/
+terraform.tfvars
+*.tfplan
+
+# Gradle generated files
+.gradle/
+build/
+**/.gradle/
+**/build/
+
+# Logs and Python cache
+*.log
+__pycache__/
+*.pyc
